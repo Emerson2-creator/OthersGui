@@ -1,9 +1,16 @@
 -- Carrega a biblioteca Emerson2Library a partir de uma URL e cria uma nova instância
--- Feito por BOITONETO
--- Universal Vehicle Script
+-- Feito por BOITONETO (Eu)
+local Emerson2Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Emerson2-creator/OthersGui/refs/heads/main/GUI/src/raw-gui-code/VehicleScript.lua"))()
+local Emerson2 = Emerson2Library.new("Universal Vehicle Script", 5013109572, "By BOITONETO")
 
-local Emerson2Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Emerson2-creator/OthersGui/refs/heads/main/My-Gui-Project/src/raw-gui/Gui1.lua"))()
-local Emerson2 = Emerson2Library.new("Universal Vehicle Script   -By BOITONETO", 5013109572,)
+-- Notificação para o jogador sobre a keybind padrão
+Emerson2:Notify("Information", "The keybind to open/close the GUI is RightAlt (I recommend not changing it)")
+
+-- Executa a notificação de criação do script em paralelo
+spawn(function()
+    wait(60)
+    Emerson2:Notify("Information", "Created by BOITONETO(Roblox nickname) Enjoy the script!")
+end)
 
 -- Obtém serviços do Roblox
 local Players = game:GetService("Players")
@@ -213,39 +220,18 @@ end
 -- Adiciona um botão para reentrar no servidor na página de configurações
 settingsSection:addButton("Rejoin Server", Rejoin)
 
--- Notificação para o jogador sobre a keybind padrão
-Emerson2:Notify("Information", "The keybind to open/close the GUI is RightAlt (I recommend not changing it)")
-
--- Executa a notificação de criação do script em paralelo
-spawn(function()
-    wait(60)
-    Emerson2:Notify("Information", "Created by BOITONETO(Roblox nickname) Enjoy the script!")
-end)
-
 -- Nova página de créditos
+
 local infoPage = Emerson2:addPage("Information", 8356778308)
+
+--Roblox section
+
 local robloxSection = infoPage:addSection("Roblox")
-robloxSection:addButton(syn and "Follow me on Roblox" or "Copy profile link", function()
-    if syn then
-        syn.request({
-            Url = "http://127.0.0.1:6463/rpc?v=1",
-            Method = "POST",
-            Headers = {
-                ["Content-Type"] = "application/json",
-                ["Origin"] = "https://roblox.com"
-            },
-            Body = game:GetService("HttpService"):JSONEncode({
-                cmd = "INVITE_BROWSER",
-                args = {
-                    code = "4111130929"
-                },
-                nonce = game:GetService("HttpService"):GenerateGUID(false)
-            }),
-        })
-        return
-    end
+robloxSection:addButton(syn and "Follow me on Roblox" or "Copy Roblox profile link", function()
     setclipboard("https://www.roblox.com/users/4111130929/profile")
 end)
+
+--GitHub section
 
 local githubSection = infoPage:addSection("GitHub")
 githubSection:addButton("Copy GitHub Profile Link", function()
