@@ -1,19 +1,18 @@
 {
-  "name": "my-gui-project",
+  "name": "My-Gui-project",
   "version": "1.0.0",
   "description": "A project for creating GUI components with Lua.",
-  "main": "src/library/gui-library.lua",
-  "scripts": {
-    "start": "node src/library/gui-library.lua",
-    "test": "echo \"No tests specified\" && exit 0"
-  },
   "dependencies": {},
   "devDependencies": {},
   "keywords": [
     "gui",
     "lua",
-    "library"
+    "luau",
+    "library",
+    "Exploiting",
+    "Roblox",
+    "script"
   ],
-  "author": "Emerson Boito",
+  "author": "Emerson Jose Boito Neto",
   "license": "ISC"
 }
