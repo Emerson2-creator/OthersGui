@@ -1,16 +1,7 @@
 -- Carrega a biblioteca Emerson2Library a partir de uma URL e cria uma nova instância
 -- Feito por BOITONETO (Eu)
 local Emerson2Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Emerson2-creator/OthersGui/refs/heads/main/My-Gui-Project/src/raw-gui/Gui1.lua"))()
-local Emerson2 = Emerson2Library.new("Universal Vehicle Script", 5013109572, "By BOITONETO")
-
--- Notificação para o jogador sobre a keybind padrão
-Emerson2:Notify("Information", "The keybind to open/close the GUI is RightAlt (I recommend not changing it)")
-
--- Executa a notificação de criação do script em paralelo
-spawn(function()
-    wait(60)
-    Emerson2:Notify("Information", "Created by BOITONETO, Enjoy the script!")
-end)
+local Emerson2 = Emerson2Library.new("Universal Vehicle Script   -By BOITONETO", 5013109572,)
 
 -- Obtém serviços do Roblox
 local Players = game:GetService("Players")
@@ -219,6 +210,15 @@ end
 
 -- Adiciona um botão para reentrar no servidor na página de configurações
 settingsSection:addButton("Rejoin Server", Rejoin)
+
+-- Notificação para o jogador sobre a keybind padrão
+Emerson2:Notify("Information", "The keybind to open/close the GUI is RightAlt (I recommend not changing it)")
+
+-- Executa a notificação de criação do script em paralelo
+spawn(function()
+    wait(60)
+    Emerson2:Notify("Information", "Created by BOITONETO(Roblox nickname) Enjoy the script!")
+end)
 
 -- Nova página de créditos
 local infoPage = Emerson2:addPage("Information", 8356778308)
