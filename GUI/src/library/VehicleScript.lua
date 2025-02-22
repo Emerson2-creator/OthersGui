@@ -1,5 +1,7 @@
 -- Carrega a biblioteca Emerson2Library a partir de uma URL e cria uma nova instância
--- Feito por BOITONETO (Eu)
+-- Feito por BOITONETO
+-- Universal Vehicle Script
+
 local Emerson2Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Emerson2-creator/OthersGui/refs/heads/main/My-Gui-Project/src/raw-gui/Gui1.lua"))()
 local Emerson2 = Emerson2Library.new("Universal Vehicle Script   -By BOITONETO", 5013109572,)
 

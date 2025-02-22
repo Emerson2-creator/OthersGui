@@ -1,5 +1,5 @@
 {
-  "name": "my-gui-project",
+  "name": "gui-project",
   "version": "1.0.0",
   "description": "A project for creating GUI components with Lua.",
   "dependencies": {},
