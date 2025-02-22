@@ -1,6 +1,6 @@
 # My GUI Project
 
-This project consists of several different GUIs for Roblox exploiting. The code is always in the library.
+This project consists of several different GUIs for Roblox exploiting.
 
 # Attention 
 
