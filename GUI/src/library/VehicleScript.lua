@@ -1,6 +1,6 @@
 -- Carrega a biblioteca Emerson2Library a partir de uma URL e cria uma nova instância
 -- Feito por BOITONETO 
-local Emerson2Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Emerson2-creator/OthersGui/refs/heads/main/GUI/src/raw-gui-code/VehicleScript.lua"))()
+local Emerson2Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Emerson2-creator/UniversalVehicleScript/refs/heads/main/GUI/src/raw-gui-code/VehicleScript.lua"))()
 local Emerson2 = Emerson2Library.new("Universal Vehicle Script", 5013109572)
 
 -- Notificação para o jogador sobre a keybind padrão
