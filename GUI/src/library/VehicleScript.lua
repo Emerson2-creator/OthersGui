@@ -1,16 +1,11 @@
 -- Carrega a biblioteca Emerson2Library a partir de uma URL e cria uma nova instância
 -- Feito por BOITONETO 
 local Emerson2Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Emerson2-creator/UniversalVehicleScript/refs/heads/main/GUI/src/raw-gui-code/VehicleScript.lua"))()
-local Emerson2 = Emerson2Library.new("Universal Vehicle Script", 5013109572)
+local Emerson2 = Emerson2Library.new("Universal Vehicle Script  -- By Emerson", 5013109572)
 
 -- Notificação para o jogador sobre a keybind padrão
-Emerson2:Notify("Information", "The keybind to open/close the GUI is RightAlt (I recommend not changing it)")
+Emerson2:Notify("Information", "The keybind to open/close the GUI is RightAlt")
 
--- Executa a notificação de criação do script em paralelo
-spawn(function()
-    wait(60)
-    Emerson2:Notify("Information", "Created by BOITONETO(Roblox nickname) Enjoy the script!")
-end)
 
 -- Obtém serviços do Roblox
 local Players = game:GetService("Players")
@@ -196,16 +191,6 @@ UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
     end
 end)
 
--- Adiciona um input text para o jogador escolher a keybind de abrir/fechar o GUI
-settingsSection:addTextbox("Keybind to Open/Close GUI", "RightAlt", function(value)
-    local newKeyCode = Enum.KeyCode[value]
-    if newKeyCode then
-        toggleKeybind = newKeyCode
-    else
-        print("Invalid KeyCode: " .. value)
-    end
-end)
-
 -- Função para reentrar no servidor
 local function Rejoin()
     if #Players:GetPlayers() <= 1 then
@@ -222,18 +207,39 @@ settingsSection:addButton("Rejoin Server", Rejoin)
 
 -- Nova página de créditos
 
-local infoPage = Emerson2:addPage("Information", 8356778308)
+ -- Adicionando um slider para o walkspeed
 
---Roblox section
-
-local robloxSection = infoPage:addSection("Roblox")
-robloxSection:addButton(syn and "Follow me on Roblox" or "Copy Roblox profile link", function()
-    setclipboard("https://www.roblox.com/users/4111130929/profile")
+settingsSection:addSlider("Walkspeed", 16, 0, 1000, function(value)
+    LocalPlayer.Character.Humanoid.WalkSpeed = value
 end)
 
---GitHub section
+-- Adicionando um slider para o jump power
 
-local githubSection = infoPage:addSection("GitHub")
-githubSection:addButton("Copy GitHub Profile Link", function()
-    setclipboard("https://github.com/Emerson2-creator")
+settingsSection:addSlider("Jump Power", 50, 0, 1000, function(value)
+    LocalPlayer.Character.Humanoid.JumpPower = value
 end)
+
+-- Adicionando um slider para o FOV
+
+settingsSection:addSlider("Field of View", 70, 0, 120, function(value)
+    workspace.CurrentCamera.FieldOfView = value
+end)
+
+-- adicionando um slider para a gravidade
+
+settingsSection:addSlider("Gravity", 196.2, 0, 1962, function(value)
+    workspace.Gravity = value
+end)
+
+-- Adicionando um botão para resetar as configurações
+
+settingsSection:addButton("Reset Settings", function()
+    LocalPlayer.Character.Humanoid.WalkSpeed = 16
+    LocalPlayer.Character.Humanoid.JumpPower = 50
+    workspace.CurrentCamera.FieldOfView = 70
+    workspace.Gravity = 196.2
+end)
+
+-- Adicionando um botão para fechar o GUI
+
+settingsSection:addButton("Close GUI", CloseGUI)
