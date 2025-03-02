@@ -1,7 +1,7 @@
 -- Carrega a biblioteca Emerson2Library a partir de uma URL e cria uma nova instância
 -- Feito por BOITONETO 
 local Emerson2Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Emerson2-creator/UniversalVehicleScript/refs/heads/main/GUI/src/raw-gui-code/VehicleScript.lua"))()
-local Emerson2 = Emerson2Library.new("Universal Vehicle Script  -- By Emerson", 5013109572)
+local Emerson2 = Emerson2Library.new("Universal Vehicle Script  -- By Juagar -- Modded By Emerson", 5013109572)
 
 -- Notificação para o jogador sobre a keybind padrão
 Emerson2:Notify("Information", "The keybind to open/close the GUI is RightAlt")
@@ -243,3 +243,26 @@ end)
 -- Adicionando um botão para fechar o GUI
 
 settingsSection:addButton("Close GUI", CloseGUI)
+
+-- Se o jogo for Wayfort, adicione uma página para Wayfort
+-- Se o jogo for Greenville, adicione uma página para Greenville
+-- Se o jogo for Westover, adicione uma página para Westover
+-- Se o jogo for Pacifico, adicione uma página para Pacifico
+
+if game.PlaceId == 3351674303 then
+    local drivingEmpirePage = Emerson2:addPage("Wayfort", 8357222903)
+    local dealershipSection = drivingEmpirePage:addSection("Vehicle Dealership")
+    local dealershipList = {}
+    for index, value in pairs(workspace:WaitForChild("Game"):WaitForChild("Dealerships"):WaitForChild("Dealerships"):GetChildren()) do
+        table.insert(dealershipList, value.Name)
+    end
+    dealershipSection:addDropdown("Dealership", dealershipList, function(v)
+        game:GetService("ReplicatedStorage").Remotes.Location:FireServer("Enter", v)
+    end)
+elseif game.PlaceId == 891852901 then
+    local greenvillePage = Emerson2:addPage("Greenville", 8360925727)
+elseif game.PlaceId == 54865335 then
+    local ultimateDrivingPage = Emerson2:addPage("Westover", 8360954483)
+elseif game.PlaceId == 5232896677 then
+    local pacificoPage = Emerson2:addPage("Pacifico", 3028235557)
+end
